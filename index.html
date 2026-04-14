@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>単位取得確認アプリ — 東北大学 工学部 機械知能・航空工学科</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="hdr">
+  <h1>単位取得確認アプリ</h1>
+  <div class="sub">東北大学 工学部 機械知能・航空工学科 ファインメカニクスコース</div>
+  <div class="course-sel-wrap">
+    <select id="courseSelect" class="course-sel" onchange="switchCourse(this.value)">
+      <option value="sys">機械システムコース</option>
+      <option value="fine" selected>ファインメカニクスコース</option>
+      <option value="robo">ロボティクスコース</option>
+      <option value="aero">航空宇宙コース</option>
+      <option value="biomed">機械・医工学コース</option>
+      <option value="quantum">量子サイエンスコース</option>
+      <option value="energy">エネルギー環境コース</option>
+    </select>
+    <span class="course-sel-arrow">▼</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <button onclick="switchTab('dash')" class="active" id="t_dash">ダッシュボード</button>
+  <button onclick="switchTab('list')" id="t_list">科目一覧</button>
+  <button onclick="switchTab('req')" id="t_req">卒業要件</button>
+  <button onclick="switchTab('set')" id="t_set">設定</button>
+</nav>
+
+<div class="main">
+  <div id="dash" class="tab active"></div>
+  <div id="list" class="tab"></div>
+  <div id="req" class="tab"></div>
+  <div id="set" class="tab"></div>
+</div>
+
+<button class="fab" onclick="openAdd()" title="科目追加">＋</button>
+
+<div id="modal" class="mo" onclick="if(event.target===this)closeModal()">
+  <div class="md" id="mdBody"></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

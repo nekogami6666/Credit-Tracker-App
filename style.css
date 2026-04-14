@@ -1,0 +1,140 @@
+/* ====================================================================
+   単位取得確認アプリ — style.css
+   東北大学 工学部 機械知能・航空工学科 全コース対応
+   ==================================================================== */
+:root{
+  --pri:#4f46e5;--pri-l:#818cf8;--pri-ll:#c7d2fe;--pri-bg:#eef2ff;
+  --ok:#059669;--ok-bg:#d1fae5;--warn:#d97706;--warn-bg:#fef3c7;
+  --ng:#dc2626;--ng-bg:#fee2e2;
+  --g50:#f9fafb;--g100:#f3f4f6;--g200:#e5e7eb;--g300:#d1d5db;
+  --g400:#9ca3af;--g500:#6b7280;--g600:#4b5563;--g700:#374151;--g800:#1f2937;
+  --r:14px;--rs:8px;
+  --sh:0 1px 3px rgba(0,0,0,.08);--shm:0 4px 6px rgba(0,0,0,.06);
+  --tr:.25s cubic-bezier(.4,0,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;background:linear-gradient(180deg,#f0f2ff 0%,var(--g50) 300px);color:var(--g800);line-height:1.6;min-height:100vh}
+
+/* ── ヘッダー ── */
+.hdr{background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 50%,#a855f7 100%);color:#fff;padding:22px 20px 18px;position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;top:-50%;right:-20%;width:300px;height:300px;background:radial-gradient(circle,rgba(255,255,255,.1)0%,transparent 70%);border-radius:50%}
+.hdr h1{font-size:1.2rem;font-weight:800;position:relative;z-index:1}
+.hdr .sub{font-size:.72rem;opacity:.8;margin-top:2px;position:relative;z-index:1}
+.hdr .course-sel-wrap{position:relative;z-index:1;margin-top:10px}
+.hdr .course-sel{padding:6px 12px;border-radius:8px;border:1.5px solid rgba(255,255,255,.35);background:rgba(255,255,255,.15);color:#fff;font-size:.82rem;font-weight:600;cursor:pointer;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);appearance:none;-webkit-appearance:none;padding-right:28px}
+.hdr .course-sel option{color:var(--g800);background:#fff}
+.hdr .course-sel-arrow{position:absolute;right:10px;top:50%;transform:translateY(-50%);pointer-events:none;font-size:.7rem;opacity:.8}
+
+/* ── ナビゲーション ── */
+.nav{display:flex;background:#fff;border-bottom:1px solid var(--g200);overflow-x:auto;position:sticky;top:0;z-index:99;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.nav button{flex:1;padding:12px 8px;border:none;background:none;font-size:.78rem;font-weight:500;color:var(--g400);cursor:pointer;border-bottom:3px solid transparent;transition:var(--tr);white-space:nowrap}
+.nav button:hover{color:var(--pri)}
+.nav button.active{color:var(--pri);border-bottom-color:var(--pri);font-weight:700}
+
+/* ── メインコンテンツ ── */
+.main{max-width:860px;margin:0 auto;padding:16px 14px 100px}
+.tab{display:none;animation:fi .3s ease}.tab.active{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── カード ── */
+.card{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:18px;margin-bottom:14px;border:1px solid rgba(0,0,0,.04)}
+.ct{font-size:.92rem;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.ct .csub{font-size:.72rem;color:var(--g400);font-weight:400;margin-left:auto}
+
+/* ── 統計グリッド ── */
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
+.sc{background:#fff;border-radius:var(--r);padding:14px 10px;box-shadow:var(--sh);text-align:center;border:1px solid rgba(0,0,0,.03)}
+.sc .num{font-size:1.6rem;font-weight:900;line-height:1.2}
+.sc .lbl{font-size:.68rem;color:var(--g400);margin-top:2px}
+
+/* ── プログレスバー ── */
+.pb{height:22px;background:var(--g100);border-radius:11px;overflow:hidden;position:relative;margin-bottom:4px}
+.pf{height:100%;border-radius:11px;transition:width .8s cubic-bezier(.4,0,.2,1);display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:800;color:#fff;min-width:36px}
+.pf.grn{background:linear-gradient(90deg,#059669,#34d399)}
+.pf.ylw{background:linear-gradient(90deg,#d97706,#fbbf24)}
+.pf.red{background:linear-gradient(90deg,#dc2626,#f87171)}
+
+/* ── バッジ ── */
+.badge{display:inline-flex;align-items:center;padding:2px 9px;border-radius:20px;font-size:.7rem;font-weight:700}
+.b-ok{background:var(--ok-bg);color:var(--ok)}
+.b-wa{background:var(--warn-bg);color:var(--warn)}
+.b-ng{background:var(--ng-bg);color:var(--ng)}
+
+/* ── 卒業判定バナー ── */
+.jb{padding:16px;border-radius:var(--r);text-align:center;margin-bottom:16px;font-weight:800;font-size:1.05rem;border:2px solid transparent}
+.jp{background:linear-gradient(135deg,#d1fae5,#a7f3d0);color:#065f46;border-color:#6ee7b7}
+.jf{background:linear-gradient(135deg,#fee2e2,#fecaca);color:#991b1b;border-color:#fca5a5}
+.jw{background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e;border-color:#fcd34d}
+
+/* ── 行・テーブル ── */
+.rw{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--g100);font-size:.85rem}
+.rw:last-child{border-bottom:none}
+.rw .rn{flex:1;font-weight:500}
+.rw .rv{font-weight:700;min-width:80px;text-align:right}
+.rw .rs{min-width:70px;text-align:right}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:.82rem}
+th{background:var(--g50);font-weight:600;color:var(--g500);text-align:left;padding:9px 10px;border-bottom:2px solid var(--g100);white-space:nowrap;font-size:.73rem}
+td{padding:9px 10px;border-bottom:1px solid var(--g100);vertical-align:middle}
+tr:hover td{background:var(--g50)}
+
+/* ── 評価カラー ── */
+.gaa{color:#7c3aed;font-weight:700}.ga{color:var(--pri);font-weight:700}.gb{color:var(--ok);font-weight:600}.gc{color:var(--warn);font-weight:600}.gd{color:var(--ng);font-weight:600}
+
+/* ── フォーム ── */
+label{display:block;font-size:.8rem;font-weight:600;color:var(--g600);margin-bottom:4px}
+input,select{width:100%;padding:9px 12px;border:1.5px solid var(--g200);border-radius:var(--rs);font-size:.88rem;transition:var(--tr);font-family:inherit;background:#fff}
+input:focus,select:focus{outline:none;border-color:var(--pri-l);box-shadow:0 0 0 3px rgba(79,70,229,.08)}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.fg{margin-bottom:12px}
+
+/* ── ボタン ── */
+.btn{padding:9px 18px;border:none;border-radius:var(--rs);font-size:.85rem;font-weight:600;cursor:pointer;transition:var(--tr);display:inline-flex;align-items:center;gap:6px}
+.btn:active{transform:scale(.97)}
+.bp{background:var(--pri);color:#fff}.bp:hover{background:#4338ca}
+.bs{background:var(--ok);color:#fff}.bs:hover{background:#047857}
+.bd{background:#fff;color:var(--ng);border:1.5px solid var(--ng-bg)}.bd:hover{background:var(--ng-bg)}
+.bo{background:#fff;color:var(--g600);border:1.5px solid var(--g200)}.bo:hover{border-color:var(--pri);color:var(--pri)}
+.bbl{width:100%;justify-content:center}
+.bsm{padding:5px 10px;font-size:.75rem}
+.bg-del{background:none;border:none;color:var(--g300);padding:4px 8px;cursor:pointer;font-size:.85rem}.bg-del:hover{color:var(--ng)}
+
+/* ── モーダル ── */
+.mo{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);backdrop-filter:blur(4px);z-index:200;align-items:center;justify-content:center;padding:16px}
+.mo.show{display:flex}
+.md{background:#fff;border-radius:16px;padding:24px;width:100%;max-width:600px;max-height:88vh;overflow-y:auto;box-shadow:0 10px 25px rgba(0,0,0,.1)}
+
+/* ── FAB ── */
+.fab{position:fixed;bottom:22px;right:22px;width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,var(--pri),#7c3aed);color:#fff;border:none;font-size:1.5rem;cursor:pointer;box-shadow:0 8px 24px rgba(79,70,229,.4);display:flex;align-items:center;justify-content:center;transition:var(--tr);z-index:50}
+.fab:hover{transform:scale(1.1)rotate(90deg)}
+
+/* ── その他 ── */
+.note{font-size:.73rem;color:var(--g400);margin-top:4px;line-height:1.5}
+.sep{border:none;border-top:1px solid var(--g100);margin:14px 0}
+.flx{display:flex;gap:8px;flex-wrap:wrap}
+.fsel{padding:4px 10px;border:1.5px solid var(--g200);border-radius:20px;font-size:.73rem;cursor:pointer;background:#fff;color:var(--g500);transition:var(--tr)}
+.fsel:hover,.fsel.on{border-color:var(--pri);color:var(--pri);background:var(--pri-bg)}
+.sr{display:flex;align-items:center;padding:6px 12px;border-radius:var(--rs);margin-bottom:6px;font-size:.82rem;gap:8px}
+.sr-ok{background:var(--ok-bg);color:#065f46}
+.sr-ng{background:var(--ng-bg);color:#991b1b}
+.sr-wa{background:var(--warn-bg);color:#92400e}
+
+/* ── ドロップゾーン ── */
+.drop-zone{border:2.5px dashed var(--g300);border-radius:var(--r);padding:40px 20px;text-align:center;cursor:pointer;transition:var(--tr);background:var(--g50)}
+.drop-zone:hover,.drop-zone.over{border-color:var(--pri);background:var(--pri-bg)}
+.drop-zone .dz-icon{font-size:2.5rem;margin-bottom:10px;opacity:.5}
+.drop-zone .dz-text{font-size:.9rem;font-weight:600;color:var(--g600)}
+.drop-zone .dz-sub{font-size:.75rem;color:var(--g400);margin-top:4px}
+
+/* ── スピナー ── */
+.spin{display:inline-block;width:18px;height:18px;border:2.5px solid var(--g200);border-top-color:var(--pri);border-radius:50%;animation:sp .7s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+/* ── プレビューテーブル ── */
+.preview-table{max-height:50vh;overflow-y:auto}
+.preview-table td{font-size:.78rem;padding:6px 8px}
+.preview-table th{font-size:.7rem;padding:6px 8px;position:sticky;top:0;z-index:1}
+.cat-sel{padding:3px 6px;font-size:.73rem;border:1px solid var(--g200);border-radius:4px;background:#fff}
+
+/* ── レスポンシブ ── */
+@media(max-width:500px){.sg{grid-template-columns:repeat(2,1fr)}.fr{grid-template-columns:1fr}}
