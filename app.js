@@ -1675,6 +1675,8 @@ function renderSet() {
   h +=
     '<p style="margin-top:8px">学生便覧（令和5年度）の履修方法をもとに、成績証明書PDFから科目を分類して表示します。</p>';
   h +=
+    '<p style="margin-top:8px">作成者:奥村颯(おくむらはやて) ハンドルネーム:猫神(ねこがみ)</p>';
+  h +=
     '<p style="margin-top:8px;color:var(--warn)"><b>注意:</b> 本アプリは参考ツールです。正式な卒業判定は教務課に確認してください。</p>';
   h += "</div></div>";
 
